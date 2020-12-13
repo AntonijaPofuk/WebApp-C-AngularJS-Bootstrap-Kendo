@@ -6,8 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="b086608c8a914725b90ece3881a1e4fa" Name="Diagram1">
         <EntityTypeShape EntityType="StudentsModel.Lesson" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentsModel.StudentsInfo" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentsModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentsModel.StudentsInfo" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentsModel.sysdiagram" Width="1.5" PointX="3.125" PointY="1.875" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

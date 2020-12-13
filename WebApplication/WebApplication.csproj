@@ -46,10 +46,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -128,19 +128,34 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\dbStudentsInfoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Lesson.cs">
+      <DependentUpon>myCRUDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\myCRUDModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>myCRUDModel.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\myCRUDModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>myCRUDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\myCRUDModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>myCRUDModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentsInfo.cs">
+      <DependentUpon>myCRUDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>myCRUDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -156,6 +171,12 @@
     <Content Include="Models\myCRUDModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>myCRUDModel.Context.cs</LastGenOutput>
+      <DependentUpon>myCRUDModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\myCRUDModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>myCRUDModel.edmx</DependentUpon>
+      <LastGenOutput>myCRUDModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -163,9 +184,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>myCRUDModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\myCRUDModel.edmx.diagram">
+    <Content Include="Models\myCRUDModel.edmx.diagram">
       <DependentUpon>myCRUDModel.edmx</DependentUpon>
-    </None>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -191,6 +212,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\dbStudentsInfoes\Create.cshtml" />
+    <Content Include="Views\dbStudentsInfoes\Delete.cshtml" />
+    <Content Include="Views\dbStudentsInfoes\Details.cshtml" />
+    <Content Include="Views\dbStudentsInfoes\Edit.cshtml" />
+    <Content Include="Views\dbStudentsInfoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
