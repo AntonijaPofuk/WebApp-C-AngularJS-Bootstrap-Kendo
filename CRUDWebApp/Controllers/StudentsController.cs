@@ -20,11 +20,34 @@ namespace CRUDWebApp.Controllers
         }
 
         // GET: Students
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string studentName, string searchString)
         {
-            return View(await _context.Student.ToListAsync());
-        }
+            // Use LINQ to get list of genres.
+            IQueryable<string> genreQuery = from m in _context.Student
+                                            orderby m.Name
+                                            select m.Name;
 
+            var students = from m in _context.Student
+                         select m;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => s.Name.Contains(searchString));
+            }
+
+            if (!string.IsNullOrEmpty(studentName))
+            {
+                students = students.Where(x => x.Name == studentName);
+            }
+
+            var studentNameVM = new StudentNameViewModel
+            {
+                Names = new SelectList(await genreQuery.Distinct().ToListAsync()),
+                Students = await students.ToListAsync()
+            };
+
+            return View(studentNameVM);
+        }
         // GET: Students/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -52,7 +75,7 @@ namespace CRUDWebApp.Controllers
         // POST: Students/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost] //Its invoked only for POST request
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Age")] Student student)
         {

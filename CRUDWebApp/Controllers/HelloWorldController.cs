@@ -21,12 +21,14 @@ namespace CRUDWebApp.Controllers
                 mapper.CreateMap<Student, Employee>();
             });
 
+            //employee1 = Mapper.Map<Student, Employee>(student1);
+
             Console.WriteLine("Automapeer is done!");
 
             Console.WriteLine(student1.GetType());
                                  
             bool b1 = student1.GetType() == typeof(Student); // true
-            bool b2 = student1.GetType() == typeof(Employee); // false! even though x is an animal
+            bool b2 = student1.GetType() == typeof(Employee); // false!
 
             Console.WriteLine(b1.ToString() , b2.ToString());
 
