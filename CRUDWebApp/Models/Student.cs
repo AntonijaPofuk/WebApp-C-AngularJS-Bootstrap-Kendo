@@ -12,10 +12,13 @@ namespace CRUDWebApp.Models
         public int Id { get; set; }
 
         [Display(Name = "Students name")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z]*$"), Required, StringLength(30)]
+
         public string Name { get; set; }
         
         public int Age { get; set; }
 
+        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$"), Required, StringLength(5)]
         public string Rating { get; set; }
     }
 

@@ -23,7 +23,7 @@ namespace CRUDWebApp.Controllers
         public async Task<IActionResult> Index(string studentName, string searchString)
         {
             // Use LINQ to get list of genres.
-            IQueryable<string> genreQuery = from m in _context.Student
+            IQueryable<string> nameQuery = from m in _context.Student
                                             orderby m.Name
                                             select m.Name;
 
@@ -42,7 +42,7 @@ namespace CRUDWebApp.Controllers
 
             var studentNameVM = new StudentNameViewModel
             {
-                Names = new SelectList(await genreQuery.Distinct().ToListAsync()),
+                Names = new SelectList(await nameQuery.Distinct().ToListAsync()),
                 Students = await students.ToListAsync()
             };
 
