@@ -77,7 +77,7 @@ namespace CRUDWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost] //Its invoked only for POST request
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Age")] Student student)
+        public async Task<IActionResult> Create([Bind("Id,Name,Age,Rating")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -109,7 +109,7 @@ namespace CRUDWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Age")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Age,Rating")] Student student)
         {
             if (id != student.Id)
             {

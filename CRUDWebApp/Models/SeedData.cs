@@ -26,24 +26,28 @@ namespace CRUDWebApp.Models
                     new Student
                     {
                         Name = "Harry",
+                        Rating = "A",
                         Age = 12
                     },
 
                     new Student
                     {
                         Name = "Lenny",
+                        Rating = "C",
                         Age = 13
                     },
 
                     new Student
                     {
                         Name = "Barry",
+                        Rating = "A",
                         Age = 15
                     },
 
                     new Student
                     {
                         Name = "Haarry",
+                        Rating = "B",
                         Age = 17
                     }
                 );
