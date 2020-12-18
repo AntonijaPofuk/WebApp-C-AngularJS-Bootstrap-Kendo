@@ -2,6 +2,9 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "AngularJS.Core/1.8.0": {
+        "type": "package"
+      },
       "AutoMapper/10.1.0": {
         "type": "package",
         "dependencies": {
@@ -2216,6 +2219,21 @@
     }
   },
   "libraries": {
+    "AngularJS.Core/1.8.0": {
+      "sha512": "StzfBqVlaMzvRQOAxShY3mVJKZxnkPahHR8/jJTj3LTG4IraRhex1c228Xd0VBDESdqW9phbgGLnvbIBpvxIyA==",
+      "type": "package",
+      "path": "angularjs.core/1.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "angularjs.core.1.8.0.nupkg.sha512",
+        "angularjs.core.nuspec",
+        "content/Scripts/angular-mocks.js",
+        "content/Scripts/angular.js",
+        "content/Scripts/angular.min.js",
+        "content/Scripts/angular.min.js.map"
+      ]
+    },
     "AutoMapper/10.1.0": {
       "sha512": "qxn9+PpQJD53PAUHGXW3HTcq6Rxbv3Pyq/jTcc60ZYwOygyqUfHIY3HBChKbDwtTHdlwlQqJeJ1ckVcaoytxxw==",
       "type": "package",
@@ -7576,6 +7594,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "AngularJS.Core >= 1.8.0",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 8.1.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.1",
       "Microsoft.EntityFrameworkCore.Sqlite >= 5.0.1",
@@ -7623,6 +7642,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "AngularJS.Core": {
+            "target": "Package",
+            "version": "[1.8.0, )"
+          },
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[8.1.0, )"
