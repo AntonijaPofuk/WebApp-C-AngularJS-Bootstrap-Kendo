@@ -5,32 +5,40 @@ using System;
 
 namespace CRUDWebApp.Controllers
 {
-    public class HelloWorldController : Controller
+   public class HelloWorldController : Controller
     {
+
+
+class Employee
+        {
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public decimal Salary { get; set; }
+        }
+
+        class Person
+        {
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+        }
         public IActionResult Index()
         {
             // AutoMapper
 
+            // Loaded with some data
+            Employee emp = new Employee();
+            emp.FirstName = "Shiv";
+            emp.LastName = "Koirala";
+            emp.Salary = 100;
+                      
+            //// Create Map
+            //CreateMap<Employee, Person>();
+            //// initialize Mapper only once on application/service start!
+            //Mapper.Initialize(cfg => {
+            //    cfg.AddProfile<MyMappingProfile>();
+            //});
 
-            var student1 = new Student
-            {
-                Name = "Kunal",
-                Age = 12
-            };
-            var mapper = new MapperConfiguration(mapper => {
-                mapper.CreateMap<Student, Employee>();
-            });
 
-            //employee1 = Mapper.Map<Student, Employee>(student1);
-
-            Console.WriteLine("Automapeer is done!");
-
-            Console.WriteLine(student1.GetType());
-                                 
-            bool b1 = student1.GetType() == typeof(Student); // true
-            bool b2 = student1.GetType() == typeof(Employee); // false!
-
-            Console.WriteLine(b1.ToString() , b2.ToString());
 
             return View();
         }
@@ -40,10 +48,11 @@ namespace CRUDWebApp.Controllers
             ViewData["Message"] = "Hello " + name;
             ViewData["NumTimes"] = numTimes;
 
-            
+
 
             return View();
         }
 
     }
 }
+

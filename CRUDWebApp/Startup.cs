@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using AutoMapper;
 
 namespace CRUDWebApp
 {
@@ -23,6 +24,9 @@ namespace CRUDWebApp
             services.AddControllersWithViews();
             services.AddDbContext<MvcStudentContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MvcStudentContext")));
+            
+            services.AddAutoMapper(typeof(Startup));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
