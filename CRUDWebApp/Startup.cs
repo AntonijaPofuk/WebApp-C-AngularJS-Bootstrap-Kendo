@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using AutoMapper;
+using CRUDWebApp.Hubs;
+
 
 namespace CRUDWebApp
 {
@@ -24,7 +26,7 @@ namespace CRUDWebApp
             services.AddControllersWithViews();
             services.AddDbContext<MvcStudentContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MvcStudentContext")));
-            
+            services.AddSignalR();
             services.AddAutoMapper(typeof(Startup));
 
         }
@@ -54,6 +56,8 @@ namespace CRUDWebApp
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapHub<ChatHub>("/chathub");
+
             });
         }
     }
