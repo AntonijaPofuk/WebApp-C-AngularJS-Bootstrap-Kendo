@@ -1,11 +1,7 @@
 ﻿using CRUDWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CRUDWebApp.Controllers
 {
@@ -18,10 +14,12 @@ namespace CRUDWebApp.Controllers
         }
         static void ReadUserDepInj()
         {
-            var user1 = new User("Tim");
+            var notificationService = new ConsoleNotification();
+            var user1 = new User("Tim", notificationService);
             user1.ChangeFirstName("Fred");
             Console.WriteLine($"New username is:  { user1.FirstName}");
         }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
