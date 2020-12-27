@@ -37,9 +37,6 @@ class Employee
             //Mapper.Initialize(cfg => {
             //    cfg.AddProfile<MyMappingProfile>();
             //});
-
-
-
             return View();
         }
 
@@ -47,8 +44,6 @@ class Employee
         {
             ViewData["Message"] = "Hello " + name;
             ViewData["NumTimes"] = numTimes;
-
-
 
             return View();
         }
