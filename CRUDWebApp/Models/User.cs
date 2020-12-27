@@ -9,17 +9,12 @@ namespace CRUDWebApp.Models
 {
     public class User
     {
-        private INotificationService _notificationService;
-
-        public User(string firstname, INotificationService notificationService)
+        public User(string firstname)
         {
             FirstName = firstname;
-            _notificationService = notificationService;
         }
-
         public User()
         {
-           
         }
         public int Id { get; set; }
         [RegularExpression(@"^[A-Z]+[a-z]*$"), Required, StringLength(20)]
@@ -33,12 +28,5 @@ namespace CRUDWebApp.Models
         {
             return $"{this.LastName}, {this.FirstName}";
         }
-
-        public void ChangeFirstName(string newFirstName)
-        {
-            FirstName = newFirstName;
-            _notificationService.NotifyFirstNameChange(this);
-        }
-
     }
 }

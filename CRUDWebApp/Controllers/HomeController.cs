@@ -1,4 +1,5 @@
-﻿using CRUDWebApp.Models;
+﻿using Autofac;
+using CRUDWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Diagnostics;
@@ -9,16 +10,21 @@ namespace CRUDWebApp.Controllers
     {
          public IActionResult Index()
         {
-            ReadUserDepInj();         
+            //Autofac
+            var containerBuilder = new ContainerBuilder();
+            containerBuilder.RegisterModule<ProgramModule>(); //inputs all modules from one place
+
+            var container = containerBuilder.Build();
+
+            var userServices = container.Resolve<UserServices>();
+            var notificationService = container.Resolve<INotificationService>();
+            
+            var user1 = new User("Tim");
+            userServices.ChangeFirstName(user1, "Fred");
+
             return View();
         }
-        static void ReadUserDepInj()
-        {
-            var notificationService = new ConsoleNotification();
-            var user1 = new User("Tim", notificationService);
-            user1.ChangeFirstName("Fred");
-            Console.WriteLine($"New username is:  { user1.FirstName}");
-        }
+     
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
