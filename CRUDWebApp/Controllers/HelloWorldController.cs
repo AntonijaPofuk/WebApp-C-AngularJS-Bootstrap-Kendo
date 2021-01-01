@@ -2,6 +2,7 @@
 using CRUDWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using static CRUDWebApp.Controllers.Builder;
 
 namespace CRUDWebApp.Controllers
 {
@@ -30,13 +31,26 @@ class Employee
             emp.FirstName = "Shiv";
             emp.LastName = "Koirala";
             emp.Salary = 100;
-                      
+
             //// Create Map
             //CreateMap<Employee, Person>();
             //// initialize Mapper only once on application/service start!
             //Mapper.Initialize(cfg => {
             //    cfg.AddProfile<MyMappingProfile>();
             //});
+
+            /// Builder Design Pattern Demo
+            var vehicleCreator = new VehicleCreator(new HeroBuilder());
+            vehicleCreator.CreateVehicle();
+            var vehicle = vehicleCreator.GetVehicle();
+            vehicle.ShowInfo();
+
+            Console.WriteLine("---------------------------------------------");
+
+            vehicleCreator = new VehicleCreator(new HondaBuilder());
+            vehicleCreator.CreateVehicle();
+            vehicle = vehicleCreator.GetVehicle();
+            vehicle.ShowInfo();
             return View();
         }
 
@@ -47,6 +61,8 @@ class Employee
 
             return View();
         }
+
+     
 
     }
 }
