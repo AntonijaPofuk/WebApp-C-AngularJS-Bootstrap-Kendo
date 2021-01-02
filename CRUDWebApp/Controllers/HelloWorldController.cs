@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CRUDWebApp.DesignPatterns.Decorator;
 using CRUDWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,7 +10,6 @@ namespace CRUDWebApp.Controllers
 {
    public class HelloWorldController : Controller
     {
-
 
 class Employee
         {
@@ -75,9 +75,16 @@ class Employee
 
             Console.WriteLine(typist.GetDetails());
             Console.WriteLine(typistCopy.GetDetails());
-            return View();
 
-           
+            //Decorator
+            IPizza pizza = new Pizza();
+            IPizza cheeseDecorator = new CheeseDecorator(pizza);
+            IPizza tomatoDecorator = new TomatoDecorator(cheeseDecorator);
+            IPizza onionDecorator = new OnionDecorator(tomatoDecorator);
+
+            Console.WriteLine(onionDecorator.getPizzaType());
+
+            return View();          
 
         }
 

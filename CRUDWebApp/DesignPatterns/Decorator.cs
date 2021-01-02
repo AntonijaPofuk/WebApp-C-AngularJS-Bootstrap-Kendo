@@ -1,0 +1,71 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace CRUDWebApp.DesignPatterns.Decorator
+{
+   public interface IPizza {
+       public string getPizzaType();
+    }
+
+    public class Pizza : IPizza
+    {
+        public string getPizzaType()
+        {
+            return "This is normal pizza!";
+        }
+    }
+
+     public class PizzaDecorator : IPizza
+    {
+
+        public IPizza _pizza;
+
+        public PizzaDecorator(IPizza pizza)
+        {
+            _pizza = pizza;
+        }
+        public virtual string getPizzaType()
+        {
+            return _pizza.getPizzaType();
+        }
+    }
+
+   public class CheeseDecorator : PizzaDecorator
+    {
+        public CheeseDecorator(IPizza pizza) : base(pizza)
+        { }
+            public override string getPizzaType()
+        {
+            string type = base.getPizzaType();
+            type += "\r\n with extra chese!";
+            return type;
+        }
+    }
+
+    public class OnionDecorator : PizzaDecorator
+    {
+        public OnionDecorator(IPizza pizza) : base(pizza)
+        { }
+        public override string getPizzaType()
+        {
+            string type = base.getPizzaType();
+            type += "\r\n with extra onion!";
+            return type;
+        }
+    }
+
+    public class TomatoDecorator : PizzaDecorator
+    {
+        public TomatoDecorator(IPizza pizza) : base(pizza)
+        { }
+        public override string getPizzaType()
+        {
+            string type = base.getPizzaType();
+            type += "\r\n with extra tomato!";
+            return type;
+        }
+    }
+}
+
