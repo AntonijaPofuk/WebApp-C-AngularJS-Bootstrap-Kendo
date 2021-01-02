@@ -13,7 +13,7 @@ namespace CRUDWebApp.DesignPatterns.Decorator
     {
         public string getPizzaType()
         {
-            return "This is normal pizza!";
+            return "This is normal pizza ";
         }
     }
 
@@ -39,7 +39,7 @@ namespace CRUDWebApp.DesignPatterns.Decorator
             public override string getPizzaType()
         {
             string type = base.getPizzaType();
-            type += "\r\n with extra chese!";
+            type += "\r\n with extra cheese ";
             return type;
         }
     }
@@ -51,7 +51,7 @@ namespace CRUDWebApp.DesignPatterns.Decorator
         public override string getPizzaType()
         {
             string type = base.getPizzaType();
-            type += "\r\n with extra onion!";
+            type += "\r\n and with extra onion ";
             return type;
         }
     }
@@ -63,7 +63,7 @@ namespace CRUDWebApp.DesignPatterns.Decorator
         public override string getPizzaType()
         {
             string type = base.getPizzaType();
-            type += "\r\n with extra tomato!";
+            type += "\r\n and with extra tomato!";
             return type;
         }
     }

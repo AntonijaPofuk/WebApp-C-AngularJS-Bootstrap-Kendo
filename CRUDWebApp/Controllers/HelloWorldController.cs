@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using CRUDWebApp.DesignPatterns;
 using CRUDWebApp.DesignPatterns.Decorator;
 using CRUDWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using static CRUDWebApp.Controllers.Builder;
 using static CRUDWebApp.Controllers.Prototype;
 
@@ -82,7 +84,19 @@ class Employee
             IPizza tomatoDecorator = new TomatoDecorator(cheeseDecorator);
             IPizza onionDecorator = new OnionDecorator(tomatoDecorator);
 
-            Console.WriteLine(onionDecorator.getPizzaType());
+            Console.WriteLine(tomatoDecorator.getPizzaType());
+
+
+            //Adapter
+            var bagOfPeelableFruit = new List<IPeelable>();
+            bagOfPeelableFruit.Add(new Orange());
+            bagOfPeelableFruit.Add(new Banana());
+            bagOfPeelableFruit.Add(new SkinnableTOPelableAdapter(new Apple()));
+            bagOfPeelableFruit.Add(new SkinnableTOPelableAdapter(new Pear()));
+
+            foreach (var fruit in bagOfPeelableFruit){
+                fruit.Peel();
+            }
 
             return View();          
 
@@ -99,5 +113,7 @@ class Employee
      
 
     }
+
+ 
 }
 
