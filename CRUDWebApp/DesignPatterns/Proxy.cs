@@ -19,8 +19,8 @@ namespace CRUDWebApp.DesignPatterns
 
     public class SecureNestProxy : INest
     {
-        private readonly INest nest;
-        public SecureNestProxy(INest nest)
+        private readonly RealNest nest; //creating surrogate object
+        public SecureNestProxy(RealNest nest)
         {
             this.nest = nest;
         }
