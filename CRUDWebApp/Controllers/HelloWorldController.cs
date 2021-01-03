@@ -120,6 +120,10 @@ class Employee
                 plant.Eat();
             }
 
+            //Proxy
+            var secureNestProxy = new SecureNestProxy(new RealNest());
+            secureNestProxy.Access("Stegosaurus");
+            secureNestProxy.Access("TRex");
 
             return View();                  
 

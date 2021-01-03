@@ -12,10 +12,10 @@ namespace CRUDWebApp.DesignPatterns
     }
     public class Leaf : IPlant
     {
-        public bool isEaten { get; set; } = false;
+        public bool IsEaten { get; set; } = false;
         public void Eat()
         {
-            isEaten = true;
+            IsEaten = true;
             Console.WriteLine("Leaf is eaten!");
         }
     }
