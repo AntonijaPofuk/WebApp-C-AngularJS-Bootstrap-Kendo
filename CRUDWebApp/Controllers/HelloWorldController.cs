@@ -43,14 +43,14 @@ class Employee
             //});
 
             // Builder Design Pattern Demo
-            var vehicleCreator = new VehicleCreator(new HeroBuilder());
-            vehicleCreator.CreateVehicle();
-            var vehicle = vehicleCreator.GetVehicle();
-            vehicle.ShowInfo();
-            Console.WriteLine("---------------------------------------------");
-            vehicleCreator = new VehicleCreator(new HondaBuilder());
-            vehicleCreator.CreateVehicle();
-            vehicle = vehicleCreator.GetVehicle();
+            //var vehicleCreator = new VehicleCreator(new HeroBuilder());
+            //vehicleCreator.CreateVehicle();
+            //var vehicle = vehicleCreator.GetVehicle();
+            //vehicle.ShowInfo();
+            //Console.WriteLine("---------------------------------------------");
+            //vehicleCreator = new VehicleCreator(new HondaBuilder());
+            //vehicleCreator.CreateVehicle();
+            //vehicle = vehicleCreator.GetVehicle();
             //vehicle.ShowInfo();
 
 
@@ -98,7 +98,30 @@ class Employee
                 fruit.Peel();
             }
 
-            return View();          
+            //Composite
+            var plants = new List<IPlant>();
+
+            var branchI = new Branch(new List<IPlant>() { new Leaf(), new Leaf() });
+            var branchII = new Branch(new List<IPlant>() { new Leaf(), new Leaf(), new Leaf(), new Leaf() });
+           //branch with two branches
+            plants.Add(new Branch(
+                new List<IPlant>()
+                    { branchI, branchII }
+            ));
+            //one leaf
+            plants.Add(new Leaf());
+            //one branch with leafs
+            plants.Add(new Branch(new List<IPlant>() { new Leaf(), new Leaf(), new Leaf(), new Leaf(), new Leaf() }));
+            //one leaf
+            plants.Add(new Leaf());
+
+            foreach (IPlant plant in plants)
+            {
+                plant.Eat();
+            }
+
+
+            return View();                  
 
         }
 
